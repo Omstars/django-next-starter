@@ -1,5 +1,6 @@
 from django.urls import path, include
 from django.contrib.auth.models import User
+from django.contrib import admin
 from rest_framework import routers, serializers, viewsets
 
 # Routers provide an easy way of automatically determining the URL conf.
@@ -18,4 +19,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('admin/', admin.site.urls),
 ]
